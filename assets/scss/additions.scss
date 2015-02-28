@@ -1,10 +1,44 @@
+$background: rgba(0,0,0,0.94);
+$primary: #aaa;
+$secondary: #888;
+
+body.tag-photography .site-wrapper {
+  background: $background;
+  header.main-header {
+    background: lighten($background, 10%);
+
+    h1.page-title {
+      color: $primary;
+    }
+
+    h2.page-description {
+      color: $secondary;
+    }
+  }
+}
+
 article.photography {
+  border-bottom: darken($secondary, 30%) 1px solid;
   section.post-excerpt {
     img {
       width: 100%;
       height: 100%;
       margin: 0;
       padding: 0;
+    }
+
+    p {
+      color: $secondary;
+    }
+  }
+
+  footer.post-meta {
+    color: $secondary;
+    a {
+      color: lighten($secondary, 10%);
+    }
+    time.post-date {
+      border-left: darken($secondary, 30%) 1px solid;
     }
   }
 }
