@@ -8,6 +8,25 @@ $secondary: #777;
   -ms-border-radius: $radius;
   border-radius: $radius;
 }
+
+body.tag-photography.post-template {
+  article.post {
+    //width: 95%;
+    max-width: 100%;
+    margin-top: 1.5em;
+  }
+
+  .photo-container {
+    //background: #f00 no-repeat center center;
+    img {
+      width: 100%;
+      @include border-radius(3px);
+      //padding: 5px;
+      //border: 1px solid darken($secondary, 30%);
+    }
+  }
+}
+
 body.tag-photography .site-wrapper {
   background: $background;
 
@@ -32,30 +51,50 @@ body.tag-photography .site-wrapper {
     }
   }
 
+  header.post-head {
+    display: none;
+  }
+
   main {
-    article.photography {
+    article.tag-photography {
       border-bottom: darken($secondary, 30%) 1px solid;
+
+      header.post-header {
+        h1.post-title {
+          color: $secondary;
+        }
+
+        section.post-meta {
+          color: $secondary;
+          time {
+            color: $secondary;
+          }
+          a {
+            color: lighten($secondary, 10%);
+          }
+        }
+      }
+
       h2.post-title a {
         color: $secondary;
       }
 
-      section.post-excerpt {
-        img {
-          width: 100%;
-          height: 100%;
-          margin: 0;
-          padding: 0;
-          @include border-radius(3px);
+      section.post-excerpt, section.post-content, section.post-meta {
+        .post-preview {
+          img {
+            width: 100%;
+            height: 100%;
+            //padding: 5px;
+            //border: 1px solid darken($secondary, 30%);
+            @include border-radius(3px);
+          }
         }
-
         p {
           color: $secondary;
         }
-
         a.read-more {
           color: $secondary;
         }
-
         a.read-more:hover {
           color: darken($secondary, 10%);
         }
@@ -69,6 +108,29 @@ body.tag-photography .site-wrapper {
         }
         time.post-date {
           border-left: darken($secondary, 30%) 1px solid;
+        }
+      }
+
+      footer.post-footer {
+        border-top: darken($secondary, 30%) 1px solid;
+        color: $secondary;
+        figure.author-image {
+          background: $background;
+          box-shadow: darken($secondary, 30%) 0 0 0 1px;
+        }
+        section.author, section.share {
+          h4 {
+            color: darken($primary, 10%);
+          }
+          p {
+            color: darken($secondary, 10%);
+          }
+          a {
+            color: $secondary;
+          }
+        }
+        section.share a:hover {
+          color: $primary;
         }
       }
     }
@@ -88,19 +150,4 @@ body.tag-photography .site-wrapper {
     background: $background;
     box-shadow: $background 0 0 0 5px;
   }
-}
-
-
-
-.photo-container {
-  position: relative;
-  display: block;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  background: #222 no-repeat center center;
-  background-size: cover;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
 }
