@@ -82,14 +82,15 @@ body.tag-photography .site-wrapper {
     border-top: darken($secondary, 30%) 1px solid;
     color: $secondary;
   }
+  
+  .post:after {
+    border: darken($secondary, 30%) 1px solid;
+    background: $background;
+    box-shadow: $background 0 0 0 5px;
+  }
 }
 
 
-.post:after {
-  border: darken($secondary, 30%) 1px solid;
-  background: $background;
-  box-shadow: $background 0 0 0 5px;
-}
 
 .photo-container {
   position: relative;
