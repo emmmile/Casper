@@ -2,6 +2,13 @@ $background: rgb(20, 20, 20);
 $primary: #aaa;
 $secondary: #777;
 
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
 .no-cover .main-nav.overlay .back-button {
   color: darken($secondary, 10%);
   border-color: darken($secondary, 10%);
@@ -38,6 +45,7 @@ body.tag-photography .site-wrapper {
           height: 100%;
           margin: 0;
           padding: 0;
+          @include border-radius(3px);
         }
 
         p {
