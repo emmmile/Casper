@@ -9,7 +9,7 @@ module.exports = function (grunt) {
             },
             dist: {
                 files: {
-                    'assets/css/additions.css': 'assets/scss/additions.scss'
+                    'assets/css/additions.css': 'assets/css/additions.scss'
                 }
             }
         }
