@@ -9,6 +9,91 @@ $secondary: #777;
   border-radius: $radius;
 }
 
+
+
+
+
+
+.navigation-bar {
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+}
+
+.navigation-bar ul {
+  list-style: none;
+  background-color: darken($background, 20%);
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+.navigation-bar li {
+  font-weight: bold;
+  font-size: 1.2em;
+  line-height: 40px;
+  height: 40px;
+  margin: 0;
+}
+
+.navigation-bar a {
+  text-decoration: none;
+  color: $primary;
+  display: block;
+  transition: .2s background-color;
+}
+
+.navigation-bar a:hover {
+  background-color: lighten($background, 30%);
+}
+
+.navigation-bar a.active {
+  background-color: #fff;
+  color: lighten($background, 30%);
+  cursor: default;
+}
+
+@media screen and (min-width: 800px) {
+  .navigation-bar li {
+    width: 200px;
+    border-bottom: none;
+    height: 50px;
+    line-height: 50px;
+    font-size: 1.4em;
+  }
+
+  /* Option 1 - Display Inline */
+  .navigation-bar li {
+    display: inline-block;
+    margin-right: -4px;
+  }
+
+  /* Options 2 - Float
+  .navigation-bar li {
+    float: left;
+  }
+  .navigation-bar ul {
+    overflow: auto;
+    width: 600px;
+    margin: 0 auto;
+  }
+  .navigation-bar {
+    background-color: #444;
+  }
+  */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 body.tag-photography.post-template {
   article.post {
     //width: 95%;
@@ -30,9 +115,11 @@ body.tag-photography.post-template {
 body.tag-photography .site-wrapper {
   background: $background;
 
+  // hide the navigation button
   .no-cover .main-nav.overlay .back-button {
     color: darken($secondary, 10%);
     border-color: darken($secondary, 10%);
+    display: none;
   }
 
   .no-cover .main-nav.overlay .back-button:hover {
@@ -41,6 +128,8 @@ body.tag-photography .site-wrapper {
 
   header.main-header {
     background: lighten($background, 7%);
+    min-height: 160px;
+    max-height: 40%;
 
     h1.page-title {
       color: $primary;
