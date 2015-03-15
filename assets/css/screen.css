@@ -1,4 +1,4 @@
- ==========================================================================
+/* ==========================================================================
    Table of Contents
    ========================================================================== */
 
@@ -352,7 +352,7 @@ pre {
     border-radius: 3px;
 }
 
-pre code, tt {
+pre code, pre tt {
     font-size: inherit;
     white-space: pre-wrap;
     background: transparent;
@@ -476,9 +476,12 @@ margin on the iframe, cause it breaks stuff. */
 }
 
 body.nav-opened .site-wrapper {
+    overflow-x: hidden;
     -webkit-transform: translate3D(-240px, 0, 0);
         -ms-transform: translate3D(-240px, 0, 0);
             transform: translate3D(-240px, 0, 0);
+    -webkit-transition: -webkit-transform 0.3s ease;
+            transition: transform 0.3s ease;
 }
 
 
@@ -516,10 +519,10 @@ body.nav-opened .site-wrapper {
 
 /* Navigation */
 body.nav-opened .nav-cover {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
-    right: 0;
+    right: 240px;
     bottom: 0;
     z-index: 200;
 }
@@ -531,33 +534,52 @@ body.nav-opened .nav-cover {
     bottom: 0;
     z-index: 5;
     width: 240px;
-    background: #2E2E2E;
+    opacity: 0;
+    background: #111;
     margin-bottom: 0;
     text-align: left;
     overflow-y: auto;
-    -webkit-transition: -webkit-transform 0.5s ease;
-            transition: transform 0.5s ease;
+    -webkit-transition: -webkit-transform 0.5s ease,
+                        opacity 0.3s ease 0.7s;
+            transition: transform 0.5s ease,
+                        opacity 0.3s ease 0.7s;
 }
 
 body.nav-closed .nav {
-    -webkit-transform: translate3D(100px, 0, 0);
-        -ms-transform: translate3D(100px, 0, 0);
-            transform: translate3D(100px, 0, 0);
+    -webkit-transform: translate3D(97px, 0, 0);
+        -ms-transform: translate3D(97px, 0, 0);
+            transform: translate3D(97px, 0, 0);
 }
 
 body.nav-opened .nav {
+    opacity: 1;
+    -webkit-transition: -webkit-transform 0.3s ease,
+                        opacity 0s ease 0s;
+            transition: transform 0.3s ease,
+                        opacity 0s ease 0s;
     -webkit-transform: translate3D(0, 0, 0);
         -ms-transform: translate3D(0, 0, 0);
             transform: translate3D(0, 0, 0);
 }
 
-a.nav-close {
+.nav-title {
     position: absolute;
-    top: 15px;
-    right: 15px;
-    width: 30px;
-    height: 30px;
+    top: 45px;
+    left: 30px;
+    font-size: 16px;
+    font-weight: 100;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.nav-close {
+    position: absolute;
+    top: 38px;
+    right: 25px;
+    width: 20px;
+    height: 20px;
     padding: 0;
+    font-size: 10px;
 }
 
 .nav-close:focus {
@@ -569,7 +591,7 @@ a.nav-close {
     content: '';
     position: absolute;
     top: 0;
-    width: 30px;
+    width: 20px;
     height: 1px;
     background: rgb(150,150,150);
     top: 15px;
@@ -595,21 +617,52 @@ a.nav-close {
 }
 
 .nav ul {
-    padding: 50px 9% 5%;
+    padding: 90px 9% 5%;
+    list-style: none;
+    counter-reset: item;
+}
+
+.nav li:before {
+    display: block;
+    float: right;
+    padding-right: 4%;
+    padding-left: 5px;
+    text-align: right;
+    font-size: 1.2rem;
+    vertical-align: bottom;
+    color: #B8B8B8;
+    content: counter(item, lower-roman);
+    counter-increment: item;
 }
 .nav li {
-    list-style: none;
     margin: 0;
 }
 .nav li a {
     text-decoration: none;
-    font-family: "Open Sans", sans-serif;
     line-height: 1.4;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     display: block;
     padding: 0.6rem 4%;
-
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
+.nav li a:after {
+    display: inline-block;
+    content: " .......................................................";
+    color: rgba(255,255,255,0.2);
+    margin-left: 5px;
+}
+.nav .nav-current:before {
+    color: #fff;
+}
+.nav .nav-current a:after {
+    content: " ";
+    border-bottom: rgba(255,255,255,0.5) 1px solid;
+    width: 100%;
+    height: 1px;
+}
+
 .nav a:link,
 .nav a:visited {
     color: #B8B8B8;
@@ -621,6 +674,34 @@ a.nav-close {
 .nav a:focus {
     color: #fff;
 }
+
+.subscribe-button {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    right: 30px;
+    height: 38px;
+    padding: 0 20px;
+    color: #111 !important;
+    text-align: center;
+    font-size: 12px;
+    font-family: "Open Sans", sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    line-height: 35px;
+    border-radius: 3px;
+    background: #fff;
+    transition: all ease 0.3s;
+}
+.subscribe-button:before {
+    font-size: 9px;
+    margin-right: 6px;
+}
+
 
 /* Create a bouncing scroll-down arrow on homepage with cover image */
 .scroll-down {
@@ -691,32 +772,6 @@ a.nav-close {
     width: auto;
 }
 
-.back-button {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    display: inline-block;
-    float: left;
-    height: 38px;
-    padding: 0 15px 0 10px;
-    border: transparent 1px solid;
-    color: #9EABB3;
-    text-align: center;
-    font-size: 12px;
-    text-transform: uppercase;
-    line-height: 35px;
-    border-radius: 3px;
-    background: rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-}
-.back-button:before {
-    position: relative;
-    bottom: -2px;
-    font-size: 13px;
-    line-height: 0;
-    margin-right: 8px;
-}
-
 .menu-button {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -724,8 +779,9 @@ a.nav-close {
     display: inline-block;
     float: right;
     height: 38px;
-    padding: 0 20px;
-    border: transparent 1px solid;
+    padding: 0 15px;
+    border: #bfc8cd 1px solid;
+    opacity: 1;
     color: #9EABB3;
     text-align: center;
     font-size: 12px;
@@ -734,18 +790,29 @@ a.nav-close {
     white-space: nowrap;
     border-radius: 3px;
     background: rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
 }
 .menu-button:focus {
     outline: 0;
 }
-.menu-button span {
+.menu-button .burger {
     font-size: 12px;
     margin-right: 6px;
 }
 
 body.nav-opened .menu-button {
+    padding: 0 12px;
+    background: #111 !important;
+    border-color: #111 !important;
+    color: #fff !important;
+    -webkit-transform: translate3D(94px, 0, 0);
+        -ms-transform: translate3D(94px, 0, 0);
+            transform: translate3D(94px, 0, 0);
+    transition: all 0.3s ease;
+}
+body.nav-opened .menu-button .word {
     opacity: 0;
+    transition: all 0.3s ease;
 }
 
 /* Special styles when overlaid on an image*/
@@ -759,7 +826,6 @@ body.nav-opened .menu-button {
     background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%,rgba(0,0,0,0) 100%);
 }
 .no-cover .main-nav.overlay,
-.no-cover .back-button,
 .no-cover .menu-button {
     background: none;
 }
@@ -768,7 +834,6 @@ body.nav-opened .menu-button {
     color: #fff;
 }
 
-.main-nav.overlay .back-button,
 .main-nav.overlay .menu-button {
     border-color: rgba(255,255,255,0.6);
 }
@@ -777,14 +842,12 @@ body.nav-opened .menu-button {
     color: #222;
     border-color: #fff;
     background: #fff;
-    transition: all 0.1s ease;
 }
 
 /* Add a border to the buttons on hover */
-.back-button:hover,
 .menu-button:hover {
-    border-color: #bfc8cd;
-    color: #9EABB3;
+    border-color: #555;
+    color: #555;
 }
 
 /* The details of your blog. Defined in ghost/settings/ */
@@ -809,7 +872,7 @@ body.nav-opened .menu-button {
 
 .no-cover.main-header {
     min-height: 160px;
-    max-height: 40%;
+    max-height: 40vh;
     background: #f5f8fa;
 }
 
@@ -821,7 +884,6 @@ body.nav-opened .menu-button {
     color: rgba(0,0,0,0.5);
 }
 
-.no-cover .main-nav.overlay .back-button,
 .no-cover .main-nav.overlay .menu-button {
     color: rgba(0,0,0,0.4);
     border-color: rgba(0,0,0,0.3);
@@ -993,8 +1055,9 @@ body:not(.post-template) .post-title {
     border: none;
 }
 
-/* Stop .full-img from creating horizontal scroll - slight hack due to
-   imperfections with browser width % calculations and rounding */
+/* Stop elements, such as img wider than the post content, from
+   creating horizontal scroll - slight hack due to imperfections
+   with browser width % calculations and rounding */
 .post-template .content {
     overflow: hidden;
 }
@@ -1011,21 +1074,22 @@ body:not(.post-template) .post-title {
     display: none;
 }
 
-/* Keep images centred and within the bounds of the post-width */
+/* Keep images centered, and allow images wider than the main
+   text column to break out. */
 .post-content img {
     display: block;
-    max-width: 100%;
+    max-width: 126%;
     height: auto;
-    margin: 0 auto;
     padding: 0.6em 0;
-}
-
-/* Break out larger images to be wider than the main text column
-   the class is applied with jQuery */
-.post-content .full-img {
-    width: 126%;
-    max-width: none;
-    margin: 0 -13%;
+    /* Centers an image by (1) pushing its left edge to the
+       center of its container and (2) shifting the entire image
+       in the opposite direction by half its own width.
+       Works for images that are larger than their containers. */
+    position: relative;
+    left: 50%;
+    -webkit-transform: translateX(-50%); /* for Safari and iOS */
+    -ms-transform: translateX(-50%); /* for IE9 */
+    transform: translateX(-50%);
 }
 
 /* The author credit area after the post */
@@ -1333,7 +1397,7 @@ body:not(.post-template) .post-title {
 
 /* On page2+ make all the headers smaller */
 .archive-template .main-header {
-    max-height: 30%;
+    max-height: 30vh;
 }
 
 /* On page2+ show extra pagination controls at the top of post list */
@@ -1387,10 +1451,6 @@ body:not(.post-template) .post-title {
 
 @media only screen and (max-width: 900px) {
 
-    .main-nav {
-        padding: 15px;
-    }
-
     blockquote {
         margin-left: 0;
     }
@@ -1401,7 +1461,7 @@ body:not(.post-template) .post-title {
         box-sizing: border-box;
         height: auto;
         min-height: 240px;
-        height: 60%;
+        height: 60vh;
         padding: 15% 0;
     }
 
@@ -1485,12 +1545,12 @@ body:not(.post-template) .post-title {
     }
 
     .post-head.main-header {
-        height:45%;
+        height:45vh;
     }
 
     .tag-head.main-header,
     .author-head.main-header {
-        height: 30%;
+        height: 30vh;
     }
 
     .no-cover.post-head.main-header {
@@ -1513,54 +1573,47 @@ body:not(.post-template) .post-title {
 
     .main-header {
         margin-bottom: 15px;
-        height: 40%;
+        height: 40vh;
     }
 
     .no-cover.main-header {
-        height: 30%;
+        height: 30vh;
     }
 
     .archive-template .main-header {
-        max-height: 20%;
+        max-height: 20vh;
         min-height: 160px;
         padding: 10% 0;
     }
 
     .main-nav {
-        padding: 0;
+        padding: 5px;
         margin-bottom: 2rem;
-        border-bottom: #e0e4e7 1px solid;
     }
 
     .blog-logo {
-        padding: 10px 10px;
+        padding: 5px;
     }
 
     .blog-logo img {
-        height: 26px;
+        height: 30px;
     }
 
-    .back-button,
     .menu-button {
-        height: 44px;
-        line-height: 41px;
+        padding: 0 5px;
         border-radius: 0;
+        border-color: transparent;
         color: #2e2e2e;
         background: transparent;
     }
-    .back-button:hover,
     .menu-button:hover {
-        border-color: #ebeef0;
         color: #2e2e2e;
-        background: #ebeef0;
+        border-color: transparent;
+        background: none;
     }
-
-    .back-button {
-        padding: 0 15px 0 10px;
-    }
-
-    .menu-button {
-        padding: 0 12px;
+    body.nav-opened .menu-button {
+        background: none !important;
+        border: transparent !important;
     }
 
     .main-nav.overlay a:hover {
@@ -1572,18 +1625,26 @@ body:not(.post-template) .post-title {
     .no-cover .main-nav.overlay {
         background: none;
     }
-    .no-cover .main-nav.overlay .back-button,
     .no-cover .main-nav.overlay .menu-button {
         border: none;
     }
 
-    .main-nav.overlay .back-button,
     .main-nav.overlay .menu-button {
         border-color: transparent;
     }
 
-    .blog-logo img {
-        max-height: 80px;
+    .nav-title {
+        top: 25px;
+
+    }
+
+    .nav-close {
+        position: absolute;
+        top: 18px;
+    }
+
+    .nav ul {
+        padding: 60px 9% 5%;
     }
 
     .inner,
@@ -1681,12 +1742,7 @@ body:not(.post-template) .post-title {
 
     .post-content img {
         padding: 0;
-    }
-
-    .post-content .full-img {
-        width: auto;
         width: calc(100% + 32px); /* expand with to image + margins */
-        margin: 0 -16px; /* get rid of margins */
         min-width: 0;
         max-width: 112%; /* fallback when calc doesn't work */
     }
@@ -1745,12 +1801,12 @@ body:not(.post-template) .post-title {
     }
 
     .post-head.main-header {
-        height: 30%;
+        height: 30vh;
     }
 
     .tag-head.main-header,
     .author-head.main-header {
-        height: 20%;
+        height: 20vh;
     }
 
     .author-profile .author-image {
