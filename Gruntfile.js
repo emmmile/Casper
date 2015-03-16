@@ -9,11 +9,11 @@ module.exports = function (grunt) {
             },
             dist: {
                 files: {
-                    'assets/css/additions.css': 'assets/css/additions.scss'
+                    'assets/css/additions.css': 'assets/sass/additions.scss'
                 }
             }
         }
     });
 
     grunt.registerTask('default', ['sass']);
-}
+};
