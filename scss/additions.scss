@@ -1,6 +1,6 @@
-$background: rgb(20, 20, 20);
-$primary: #aaa;
-$secondary: #777;
+$background: rgb(15, 15, 15);
+$primary: #ddd;
+$secondary: #aaa;
 
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
@@ -11,13 +11,23 @@ $secondary: #777;
 
 
 
+section.post-excerpt, section.post-content, section.post-meta {
+  .post-preview {
+    img {
+      width: 100%;
+      height: 100%;
+      //padding: 5px;
+      //border: 1px solid darken($secondary, 30%);
+      @include border-radius(3px);
+    }
+  }
+}
 
 
 
 
 
-
-body.tag-photography.post-template {
+/*body.tag-photography.post-template {
   article.post {
     //width: 95%;
     max-width: 100%;
@@ -33,9 +43,9 @@ body.tag-photography.post-template {
       //border: 1px solid darken($secondary, 30%);
     }
   }
-}
+}*/
 
-body.tag-photography .site-wrapper {
+/*body .site-wrapper {
   background: $background;
 
   // hide the navigation button
@@ -68,7 +78,7 @@ body.tag-photography .site-wrapper {
   }
 
   main {
-    article.tag-photography {
+    article {
       border-bottom: darken($secondary, 30%) 1px solid;
 
       header.post-header {
@@ -92,15 +102,6 @@ body.tag-photography .site-wrapper {
       }
 
       section.post-excerpt, section.post-content, section.post-meta {
-        .post-preview {
-          img {
-            width: 100%;
-            height: 100%;
-            //padding: 5px;
-            //border: 1px solid darken($secondary, 30%);
-            @include border-radius(3px);
-          }
-        }
         p {
           color: $secondary;
         }
@@ -163,3 +164,4 @@ body.tag-photography .site-wrapper {
     box-shadow: $background 0 0 0 5px;
   }
 }
+*/

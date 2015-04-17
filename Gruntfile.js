@@ -1,19 +1,35 @@
-
 module.exports = function (grunt) {
-    require('load-grunt-tasks')(grunt); // npm install --save-dev load-grunt-tasks
-
     grunt.initConfig({
+        paths: {
+            scss: './scss',
+            css: './assets/css'
+        },
+        buildType: 'Build',
+        pkg: grunt.file.readJSON('package.json'),
+
         sass: {
-            options: {
-                sourceMap: true
-            },
-            dist: {
+            admin: {
+                options : {
+                    // Only enable sourcemaps if you have Sass 3.3 installed.
+                    // sourcemap: true
+                },
                 files: {
-                    'assets/css/additions.css': 'assets/sass/additions.scss'
+                    '<%= paths.css %>/additions.css': '<%= paths.scss %>/additions.scss'
                 }
+            }
+        },
+
+        watch: {
+            sass: {
+                files: './scss/*.scss',
+                tasks: ['sass:admin']
             }
         }
     });
 
-    grunt.registerTask('default', ['sass']);
+
+    grunt.loadNpmTasks('grunt-sass');
+    grunt.loadNpmTasks('grunt-contrib-watch');
+
+    grunt.registerTask('default', ['sass:admin']);
 };
