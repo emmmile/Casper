@@ -6,6 +6,8 @@ import re
 import math
 from colour import Color
 
+# http://samstarling.co.uk/2012/05/desaturating-colours-using-javascript/
+
 def process(c, i, k):
 	# i is the amount of inversion: 0 preserves, 1 is totally inverted
 	# k is the amount of desaturation: 0 preserves, 1 totally desaturated, 2 doubles the saturation
@@ -39,7 +41,6 @@ def colorrepl(m):
 
 	print(cstr + " -> " + tostr(c, alpha))
 	return tostr(c,alpha)
-
 
 
 s = codecs.open("screen.css", "r", "utf-8").read()
