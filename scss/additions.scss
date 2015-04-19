@@ -35,6 +35,11 @@ section.post-excerpt, section.post-content, section.post-meta {
   }
 }
 
+// for transparent images
+.post-content img {
+  background: rgba(255, 255, 255, 0.1);
+}
+
 ::-moz-selection {
     background: #B8C9F3;
 }
