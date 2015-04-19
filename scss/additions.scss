@@ -9,7 +9,19 @@ $secondary: #aaa;
   border-radius: $radius;
 }
 
+@mixin invert-colors($perc, $gray) {
+  -webkit-filter: #{"invert(" + $perc + ") grayscale(" + $gray + ")"};
+  -moz-filter: #{"invert(" + $perc + ") grayscale(" + $gray + ")"};
+  -o-filter: #{"invert(" + $perc + ") grayscale(" + $gray + ")"};
+  -ms-filter: #{"invert(" + $perc + ") grayscale(" + $gray + ")"};
+}
 
+@mixin reset-filters() {
+  -webkit-filter: none;
+  -moz-filter: none;
+  -o-filter: none;
+  -ms-filter: none;
+}
 
 section.post-excerpt, section.post-content, section.post-meta {
   .post-preview {
@@ -23,9 +35,13 @@ section.post-excerpt, section.post-content, section.post-meta {
   }
 }
 
+::-moz-selection {
+    background: #B8C9F3;
+}
 
-
-
+::selection {
+    background: #B8C9F3;
+}
 
 /*body.tag-photography.post-template {
   article.post {
