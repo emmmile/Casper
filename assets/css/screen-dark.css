@@ -1178,15 +1178,23 @@ body:not(.post-template) .post-title {
 }
 
 .post-footer .share a {
-    font-size: 1.8rem;
+    font-size: 2.4rem;
     display: inline-block;
     margin: 1rem 1.6rem 1.6rem 0;
-    color: rgba(71, 64, 62, 1.0);
     text-decoration: none;
 }
 
-.post-footer .share a:hover {
-    color: rgba(168, 164, 161, 1.0);
+.post-footer .share .icon-twitter:hover {
+    color: rgba(141, 94, 59, 1.0);
+    color: #55acee;
+}
+.post-footer .share .icon-facebook:hover {
+    color: rgba(179, 163, 129, 1.0);
+    color: #3b5998;
+}
+.post-footer .share .icon-google-plus:hover {
+    color: rgba(81, 160, 169, 1.0);
+    color: #dd4b39;
 }
 
 

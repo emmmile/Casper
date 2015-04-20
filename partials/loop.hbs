@@ -20,10 +20,10 @@
         <p>{{excerpt words="52"}} <a class="read-more" href="{{url}}">&raquo;</a></p>
     </section>
     <footer class="post-meta">
-        {{#if author.image}}<img class="author-thumb" src="{{author.image}}" alt="Author image" nopin="nopin" />{{/if}}
-        {{author}}
-        {{tags prefix=" on "}}
-        <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time>
+        <!--{{#if author.image}}<img class="author-thumb" src="{{author.image}}" alt="Author image" nopin="nopin" />{{/if}}-->
+        <span class="fa fa-user"></span>{{author}}
+        <span class="fa fa-calendar"></span><time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time>
+        {{#if tags}}<span class="fa fa-tags"></span>{{/if}}{{tags}}
     </footer>
 </article>
 {{/foreach}}
