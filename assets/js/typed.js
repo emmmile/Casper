@@ -125,6 +125,9 @@
             // can't be global since number changes each time loop is executed
             var humanize = Math.round(Math.random() * (100 - 30)) + this.typeSpeed;
             var self = this;
+            // horrible hack to recalculate the size of the header
+            // NOT tested 
+            $(".main-header").css("height",$(".main-header").css("height"));
 
             // ------------- optional ------------- //
             // backpaces a certain string faster

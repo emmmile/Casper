@@ -97,14 +97,13 @@ section.post-excerpt, section.post-content, section.post-meta {
 }
 
 // playing with the typed.js stuff
-/*.page-title {
-  font-size: 4rem;
+.page-title {
   display: inline;
 }
 .typed-cursor {
-  font-size: 4rem;
-  -webkit-animation: blink .7s infinite;
-  animation: blink .7s infinite;
+  font-size: 5rem;
+  -webkit-animation: blink 1s infinite;
+  animation: blink 1s infinite;
   font-weight: 700;
 }
 @keyframes blink {
@@ -116,4 +115,16 @@ section.post-excerpt, section.post-content, section.post-meta {
   0% { opacity: 1; }
   50% { opacity: 0; }
   100% { opacity: 1; }
-}*/
+}
+
+@media only screen and (max-width: 900px) {
+  .typed-cursor {
+    font-size: 4rem;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .typed-cursor {
+    font-size: 3rem;
+  }
+}
