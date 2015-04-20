@@ -26,7 +26,14 @@ section.post-excerpt, section.post-content, section.post-meta {
 
 // for transparent images
 .post-content img {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255,255,255,0.5);
+background: -moz-radial-gradient(center, ellipse cover, rgba(255,255,255,0.5) 0%, rgba(246,246,246,0.27) 47%, rgba(237,237,237,0) 100%);
+background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(255,255,255,0.5)), color-stop(47%, rgba(246,246,246,0.27)), color-stop(100%, rgba(237,237,237,0)));
+background: -webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,0.5) 0%, rgba(246,246,246,0.27) 47%, rgba(237,237,237,0) 100%);
+background: -o-radial-gradient(center, ellipse cover, rgba(255,255,255,0.5) 0%, rgba(246,246,246,0.27) 47%, rgba(237,237,237,0) 100%);
+background: -ms-radial-gradient(center, ellipse cover, rgba(255,255,255,0.5) 0%, rgba(246,246,246,0.27) 47%, rgba(237,237,237,0) 100%);
+background: radial-gradient(ellipse at center, rgba(255,255,255,0.5) 0%, rgba(246,246,246,0.27) 47%, rgba(237,237,237,0) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed', GradientType=1 );
 }
 
 ::-moz-selection {
@@ -59,28 +66,32 @@ section.post-excerpt, section.post-content, section.post-meta {
 // for the fa icons
 .post-meta {
   .fa {
+    display: inline;
     padding-right: 6px;
   }
-  .fa-calendar {
-    padding-left: 12px;
-  }
-  .fa-tags {
-    padding-left: 12px;
+  .post-author {
+    padding-right: 12px;
   }
   .post-date {
     margin-left: 0;
     padding-left: 0;
+    padding-right: 12px;
     border-left: none;
     text-transform: none;
     font-size: inherit;
   }
 }
 
-.follow svg {
-  width: 20px;
-  height: 20px;
-  margin-bottom: -3.2px;
-  margin-left: -2.5px;
-  margin-right: -2.5px;
-  fill: rgba(176, 176, 176, 1.0);
+@media only screen and (max-width: 500px) {
+  .home-template {
+    .post-meta {
+      .fa {
+        // to fix 
+        display: inline;
+      }
+      .fa-calendar {
+        display: none;
+      }
+    }
+  }
 }
