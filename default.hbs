@@ -52,14 +52,17 @@
 
     <script>
         $(function(){
-            $('.page-title').html("");
-            $(".page-title").typed({
-                //strings: ["{{@blog.title}}"],
-                strings: ["Future^700 Memories"],
-                typeSpeed: 60,
-                showCursor: true,
-                startDelay: 600
-            });
+            if ( $("body").hasClass("tag-photography") 
+                || $("body").hasClass("home-template") ) {
+                $('.page-title').html("");
+                $(".page-title").typed({
+                    //strings: ["{{@blog.title}}"],
+                    strings: ["Future^700 Memories"],
+                    typeSpeed: 60,
+                    showCursor: true,
+                    startDelay: 600
+                });
+            }
         });
     </script>
 </body>
