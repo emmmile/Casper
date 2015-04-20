@@ -27,13 +27,13 @@ section.post-excerpt, section.post-content, section.post-meta {
 // for transparent images
 .post-content img {
   background: rgba(255,255,255,0.5);
-background: -moz-radial-gradient(center, ellipse cover, rgba(255,255,255,0.5) 0%, rgba(246,246,246,0.27) 47%, rgba(237,237,237,0) 100%);
-background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(255,255,255,0.5)), color-stop(47%, rgba(246,246,246,0.27)), color-stop(100%, rgba(237,237,237,0)));
-background: -webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,0.5) 0%, rgba(246,246,246,0.27) 47%, rgba(237,237,237,0) 100%);
-background: -o-radial-gradient(center, ellipse cover, rgba(255,255,255,0.5) 0%, rgba(246,246,246,0.27) 47%, rgba(237,237,237,0) 100%);
-background: -ms-radial-gradient(center, ellipse cover, rgba(255,255,255,0.5) 0%, rgba(246,246,246,0.27) 47%, rgba(237,237,237,0) 100%);
-background: radial-gradient(ellipse at center, rgba(255,255,255,0.5) 0%, rgba(246,246,246,0.27) 47%, rgba(237,237,237,0) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed', GradientType=1 );
+  background: -moz-radial-gradient(center, ellipse cover, rgba(255,255,255,0.5) 0%, rgba(246,246,246,0.27) 47%, rgba(237,237,237,0) 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(255,255,255,0.5)), color-stop(47%, rgba(246,246,246,0.27)), color-stop(100%, rgba(237,237,237,0)));
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,0.5) 0%, rgba(246,246,246,0.27) 47%, rgba(237,237,237,0) 100%);
+  background: -o-radial-gradient(center, ellipse cover, rgba(255,255,255,0.5) 0%, rgba(246,246,246,0.27) 47%, rgba(237,237,237,0) 100%);
+  background: -ms-radial-gradient(center, ellipse cover, rgba(255,255,255,0.5) 0%, rgba(246,246,246,0.27) 47%, rgba(237,237,237,0) 100%);
+  background: radial-gradient(ellipse at center, rgba(255,255,255,0.5) 0%, rgba(246,246,246,0.27) 47%, rgba(237,237,237,0) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed', GradientType=1 );
 }
 
 ::-moz-selection {
@@ -94,4 +94,26 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
       }
     }
   }
+}
+
+// playing with the typed.js stuff
+.page-title {
+  font-size: 4rem;
+  display: inline;
+}
+.typed-cursor {
+  font-size: 4rem;
+  -webkit-animation: blink .7s infinite;
+  animation: blink .7s infinite;
+  font-weight: 700;
+}
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-webkit-keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
 }
