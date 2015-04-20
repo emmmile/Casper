@@ -43,16 +43,17 @@
     {{! Ghost outputs important scripts and data with this tag }}
     {{ghost_foot}}
 
-    <script>
-    $(function(){
-        $(".page-title").typed({
-            strings: ["Future Memories."],
-            typeSpeed: 60,
-            showCursor: true,
-            startDelay: 600
+    <!--script>
+        $(function(){
+            $('.page-title').html("");
+            $(".page-title").typed({
+                strings: ["Future Memories."],
+                typeSpeed: 60,
+                showCursor: true,
+                startDelay: 600
+            });
         });
-    });
-</script>
+    </script-->
 
     {{! The main JavaScript file for Casper }}
     <script type="text/javascript" src="{{asset "js/jquery.fitvids.js"}}"></script>
