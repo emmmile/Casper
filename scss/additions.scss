@@ -105,6 +105,10 @@ section.post-excerpt, section.post-content, section.post-meta {
   -webkit-animation: blink 1s infinite;
   animation: blink 1s infinite;
   font-weight: 700;
+  color: #fff;
+}
+.no-cover .typed-cursor {
+    color: rgba(0,0,0,0.8);
 }
 @keyframes blink {
   0% { opacity: 1; }
