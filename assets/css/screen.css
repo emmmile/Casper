@@ -921,10 +921,6 @@ body.nav-opened .nav {
     padding-bottom: 4rem;
     border-bottom: #EBF2F6 1px solid;
     word-wrap: break-word;
-    -moz-hyphens: auto;
-    -ms-hyphens: auto;
-    -webkit-hyphens: auto;
-    hyphens: auto;
 }
 
 /* Add a little circle in the middle of the border-bottom on our .post
@@ -1104,6 +1100,7 @@ body:not(.post-template) .post-title {
 .footnotes {
     font-style: italic;
     font-size: 1.3rem;
+    line-height: 1.6em;
 }
 
 .footnotes li {
@@ -1112,6 +1109,10 @@ body:not(.post-template) .post-title {
 
 .footnotes p {
     margin: 0;
+}
+
+.footnotes p a:last-child {
+    text-decoration: none;
 }
 
 
@@ -1185,8 +1186,14 @@ body:not(.post-template) .post-title {
     text-decoration: none;
 }
 
-.post-footer .share a:hover {
-    color: #50585D;
+.post-footer .share .icon-twitter:hover {
+    color: #55acee;
+}
+.post-footer .share .icon-facebook:hover {
+    color: #3b5998;
+}
+.post-footer .share .icon-google-plus:hover {
+    color: #dd4b39;
 }
 
 
@@ -1766,7 +1773,7 @@ body:not(.post-template) .post-title {
     .menu-button {
         padding: 0 5px;
         border-radius: 0;
-        border-color: transparent;
+        border-width: 0;
         color: #2e2e2e;
         background: transparent;
     }
