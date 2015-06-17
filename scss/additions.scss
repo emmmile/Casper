@@ -96,6 +96,7 @@ section.post-excerpt, section.post-content, section.post-meta {
   }
 }
 
+
 // playing with the typed.js stuff
 .page-title {
   display: inline;
@@ -133,10 +134,17 @@ section.post-excerpt, section.post-content, section.post-meta {
   }
 }
 
+
+// adjust the animation of the description
 .home-template .page-description {
   opacity: 0; // reset from default.hbs
   -webkit-animation: fade-in-down 0.9s;
   animation: fade-in-down 0.9s;
   -webkit-animation-delay: 3s;
   animation-delay: 3s;
+}
+
+// smaller code size
+pre code, pre tt {
+  //font-size: smaller; // instead of inherit
 }
