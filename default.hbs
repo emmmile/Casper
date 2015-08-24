@@ -60,15 +60,11 @@
                     typeSpeed: 60,
                     showCursor: true,
                     startDelay: 600,
-                    callback: function() { alert("typed"); }
+                    callback: function() { 
+                        $(".page-description").css("opacity", 1); 
+                    }
                 });
             }
-            setTimeout(
-                function(){
-                    $(".page-description").css("opacity", 1);
-                },
-                4100
-            );
         });
     </script>
 </body>
