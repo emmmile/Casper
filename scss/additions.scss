@@ -145,3 +145,9 @@ section.post-excerpt, section.post-content, section.post-meta {
 pre code, pre tt {
   //font-size: smaller; // instead of inherit
 }
+
+#disqus_thread {
+  .nav.nav-primary {
+    border-bottom: 1px solid;
+  }
+}
