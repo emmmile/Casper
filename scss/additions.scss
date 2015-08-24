@@ -137,6 +137,7 @@ section.post-excerpt, section.post-content, section.post-meta {
 
 // adjust the animation of the description
 .home-template .page-description {
+  display: none;
   -webkit-animation: fade-in-down 0.9s;
   animation: fade-in-down 0.9s;
 }
