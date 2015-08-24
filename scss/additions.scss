@@ -138,10 +138,18 @@ section.post-excerpt, section.post-content, section.post-meta {
 // adjust the animation of the description
 .home-template .page-description {
   opacity: 0;
-  -webkit-animation-play-state: paused;
-  animation-play-state: paused;
-  -webkit-animation: fade-in-down 0.9s;
-  animation: fade-in-down 0.9s;
+  -webkit-animation: opacity-fade 1s;
+  animation: opacity-fade 1s;
+}
+
+@-webkit-keyframes opacity-fade {
+  from {margin-top: -1.3em; opacity: 0;}
+  to {margin-top: 0; opacity: 1;}
+}
+
+@keyframes opacity-fade {
+  from {margin-top: -1.3em; opacity: 0;}
+  to {margin-top: 0; opacity: 1;}
 }
 
 // smaller code size
