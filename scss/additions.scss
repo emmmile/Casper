@@ -139,7 +139,6 @@ section.post-excerpt, section.post-content, section.post-meta {
 .home-template .page-description {
   opacity: 0; // reset from default.hbs
   -webkit-animation: fade-in-down 0.9s;
-  -webkit-animation-play-state: paused;
   animation: fade-in-down 0.9s;
   // -webkit-animation-delay: 4s;
   // animation-delay: 4s;
