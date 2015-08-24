@@ -140,6 +140,7 @@ section.post-excerpt, section.post-content, section.post-meta {
   opacity: 0;
   -webkit-animation: opacity-fade 1s;
   animation: opacity-fade 1s;
+  // http://stackoverflow.com/questions/9774829/css-animation-property-stays-after-animating
   animation-fill-mode: forwards;  
 }
 
