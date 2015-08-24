@@ -137,11 +137,8 @@ section.post-excerpt, section.post-content, section.post-meta {
 
 // adjust the animation of the description
 .home-template .page-description {
-  opacity: 0; // reset from default.hbs
   -webkit-animation: fade-in-down 0.9s;
   animation: fade-in-down 0.9s;
-  -webkit-animation-delay: 0.3s;
-  animation-delay: 0.3s;
 }
 
 // smaller code size
