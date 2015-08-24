@@ -54,6 +54,7 @@
         $(function(){
             if ( $("body").hasClass("home-template") ) {
                 $('.page-title').html("");
+                $(".home-template.page-description").style.webkitAnimationPlayState = "paused";
                 $(".page-title").typed({
                     //strings: ["{{@blog.title}}"],
                     strings: ["In essence,^700 my bits"],
@@ -61,7 +62,8 @@
                     showCursor: true,
                     startDelay: 600,
                     callback: function() { 
-                        //$(".page-description").css("opacity", 1); 
+                        $(".home-template.page-description").style.webkitAnimationPlayState = "running";
+                        $(".page-description").css("opacity", 1); 
                     }
                 });
             }
