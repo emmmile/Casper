@@ -140,6 +140,7 @@ section.post-excerpt, section.post-content, section.post-meta {
   opacity: 0;
   -webkit-animation: opacity-fade 1s;
   animation: opacity-fade 1s;
+  animation-fill-mode: forwards;  
 }
 
 @-webkit-keyframes opacity-fade {
