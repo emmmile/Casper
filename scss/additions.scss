@@ -65,7 +65,6 @@ section.post-excerpt, section.post-content, section.post-meta {
 
 // for the fa icons
 .post-meta {
-  padding-top: 0.4em;
   .fa {
     display: inline;
     padding-right: 6px;
@@ -80,6 +79,12 @@ section.post-excerpt, section.post-content, section.post-meta {
     border-left: none;
     text-transform: none;
     font-size: inherit;
+  }
+}
+
+.post-template {
+  .post-meta {
+    padding-top: 0.4em;
   }
 }
 
