@@ -127,7 +127,7 @@
             var self = this;
             // horrible hack to recalculate the size of the header
             // NOT tested 
-            $(".main-header").css("height",$(".main-header").css("height"));
+            //$(".main-header").css("height",$(".main-header").css("height"));
 
             // ------------- optional ------------- //
             // backpaces a certain string faster

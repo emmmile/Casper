@@ -65,6 +65,7 @@ section.post-excerpt, section.post-content, section.post-meta {
 
 // for the fa icons
 .post-meta {
+  padding-top: 0.4em;
   .fa {
     display: inline;
     padding-right: 6px;
@@ -138,12 +139,19 @@ section.post-excerpt, section.post-content, section.post-meta {
 // adjust the animation of the description
 .home-template .page-description {
   opacity: 0;
+  padding-top: 0.3em;
   -webkit-animation: opacity-fade 1s;
   animation: opacity-fade 1s;
   -webkit-animation-play-state: paused; /* Chrome, Safari, Opera */
   animation-play-state: paused;
   // http://stackoverflow.com/questions/9774829/css-animation-property-stays-after-animating
-  animation-fill-mode: forwards;  
+  animation-fill-mode: forwards;
+}
+
+@media only screen and (max-width: 900px) {
+  .home-template .page-description {
+    padding-top: 0.1em;
+  }
 }
 
 @-webkit-keyframes opacity-fade {
