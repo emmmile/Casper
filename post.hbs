@@ -21,7 +21,7 @@
         <header class="post-header">
             <h1 class="post-title">{{title}}</h1>
             <section class="post-meta">
-                <span class="post-author"><span class="fa fa-user"></span>{{author}}</span>
+                <span class="post-author"><span class="fa fa-user"></span>{{author.name}}</span>
                 <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}"><span class="fa fa-clock-o"></span>{{date format="DD MMMM YYYY"}}</time>
                 <span class="past-tags">{{#if tags}}<span class="fa fa-tags"></span>{{/if}}{{tags}}</span>
             </section>
@@ -38,12 +38,12 @@
 
             {{#if image}}
             <figure class="author-image">
-                <a class="img" href="{{url}}" style="background-image: url({{image}})"><span class="hidden">{{name}}'s Picture</span></a>
+                <a class="img" href="/about-me" style="background-image: url({{image}})"><span class="hidden">{{name}}'s Picture</span></a>
             </figure>
             {{/if}}
 
             <section class="author">
-                <h4><a href="{{url}}">{{name}}</a></h4>
+                <h4><a href="/about-me">{{name}}</a></h4>
 
                 {{#if bio}}
                     <p>{{bio}}</p>
